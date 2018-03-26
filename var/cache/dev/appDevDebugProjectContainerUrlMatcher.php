@@ -114,41 +114,49 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::createAction',  '_route' => 'create_formation',);
         }
 
-        if (0 === strpos($pathinfo, '/loisir/create')) {
-            // create_loisir
-            if ('/loisir/create' === $pathinfo) {
-                return array (  '_controller' => 'AppBundle\\Controller\\LoisirController::createAction',  '_route' => 'create_loisir',);
-            }
-
-            // validate_create_loisir
-            if ('/loisir/create_valid' === $pathinfo) {
-                if ('POST' !== $canonicalMethod) {
-                    $allow[] = 'POST';
-                    goto not_validate_create_loisir;
+        if (0 === strpos($pathinfo, '/loisir')) {
+            if (0 === strpos($pathinfo, '/loisir/create')) {
+                // create_loisir
+                if ('/loisir/create' === $pathinfo) {
+                    return array (  '_controller' => 'AppBundle\\Controller\\LoisirsController::createAction',  '_route' => 'create_loisir',);
                 }
 
-                return array (  '_controller' => 'AppBundle\\Controller\\LoisirController::validateLoisirAction',  '_route' => 'validate_create_loisir',);
+                // validate_create_loisir
+                if ('/loisir/create_valid' === $pathinfo) {
+                    if ('POST' !== $canonicalMethod) {
+                        $allow[] = 'POST';
+                        goto not_validate_create_loisir;
+                    }
+
+                    return array (  '_controller' => 'AppBundle\\Controller\\LoisirsController::validateLoisirAction',  '_route' => 'validate_create_loisir',);
+                }
+                not_validate_create_loisir:
+
             }
-            not_validate_create_loisir:
 
-        }
-
-        elseif (0 === strpos($pathinfo, '/loisir/edit')) {
-            // edit_loisir
-            if (preg_match('#^/loisir/edit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'edit_loisir')), array (  '_controller' => 'AppBundle\\Controller\\LoisirController::editAction',));
-            }
-
-            // validate_edit_loisir
-            if (0 === strpos($pathinfo, '/loisir/edit_valid') && preg_match('#^/loisir/edit_valid/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                if ('POST' !== $canonicalMethod) {
-                    $allow[] = 'POST';
-                    goto not_validate_edit_loisir;
+            elseif (0 === strpos($pathinfo, '/loisir/edit')) {
+                // edit_loisir
+                if (preg_match('#^/loisir/edit/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'edit_loisir')), array (  '_controller' => 'AppBundle\\Controller\\LoisirsController::editAction',));
                 }
 
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'validate_edit_loisir')), array (  '_controller' => 'AppBundle\\Controller\\LoisirController::validateEditLoisirAction',));
+                // validate_edit_loisir
+                if (0 === strpos($pathinfo, '/loisir/edit_valid') && preg_match('#^/loisir/edit_valid/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if ('POST' !== $canonicalMethod) {
+                        $allow[] = 'POST';
+                        goto not_validate_edit_loisir;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'validate_edit_loisir')), array (  '_controller' => 'AppBundle\\Controller\\LoisirsController::validateEditLoisirAction',));
+                }
+                not_validate_edit_loisir:
+
             }
-            not_validate_edit_loisir:
+
+            // delete_loisir
+            if (0 === strpos($pathinfo, '/loisir/delete') && preg_match('#^/loisir/delete/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'delete_loisir')), array (  '_controller' => 'AppBundle\\Controller\\LoisirsController::deleteAction',));
+            }
 
         }
 

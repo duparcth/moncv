@@ -10,7 +10,7 @@ use AppBundle\Entity\loisir;
 /**
  * @Route("/loisir")
  */
-class LoisirController extends Controller
+class LoisirsController extends Controller
 {
     /**
      * @Route("/create", name="create_loisir")
@@ -79,5 +79,17 @@ class LoisirController extends Controller
             'entity' => $loisir,
             'form' => $form->createView(),
         ));
+    }
+    /**
+     * @Route("/delete/{id}", name="delete_loisir")
+     * @Template()
+     */
+    public function deleteAction($id)
+    {
+        $eManager = $this->getDoctrine()->getManager();
+        $loisir = $eManager->getRepository("AppBundle:Loisir")->FindOneBy(["id" => $id]);
+        $eManager->remove($loisir);
+        $eManager->flush();
+        return $this->redirectToRoute('homepage');
     }
 }

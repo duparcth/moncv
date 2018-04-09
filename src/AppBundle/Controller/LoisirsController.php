@@ -6,7 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\LoisirType;
-use AppBundle\Entity\loisir;
+use AppBundle\Entity\Loisir;
 /**
  * @Route("/loisir")
  */
@@ -18,7 +18,7 @@ class LoisirsController extends Controller
      */
     public function createAction()
     {
-        $loisir = new loisir();
+        $loisir = new Loisir();
         $form = $this->createForm(LoisirType::class, $loisir);
         return array(
             'entity' => $loisir,
@@ -67,7 +67,7 @@ class LoisirsController extends Controller
     public function validateEditLoisirAction(Request $request, $id)
     {
         $eManager = $this->getDoctrine()->getManager();
-        $loisir = $eManager->getRepository("AppBundle:loisir")->FindOneBy(["id" => $id]);
+        $loisir = $eManager->getRepository("AppBundle:Loisir")->FindOneBy(["id" => $id]);
         $form = $this->createForm(LoisirType::class, $loisir);
         $form->handleRequest($request); 
         if ($form->isSubmitted() && $form->isValid()) {

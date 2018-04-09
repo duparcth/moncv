@@ -15,31 +15,32 @@ class __TwigTemplate_74975345b4ffc9604eb0426b55c7b707657ab45bceebccbd72b03699af9
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_9954c51d98f1083248e08129b1efb5b46dbb07a169dfc71352195a374a22771e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_9954c51d98f1083248e08129b1efb5b46dbb07a169dfc71352195a374a22771e->enter($__internal_9954c51d98f1083248e08129b1efb5b46dbb07a169dfc71352195a374a22771e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@App/loisirs/create.html.twig"));
+        $__internal_9811436922553cffcb7070622cc71a19f33b45e27aadd7ae92e70034bfa592a4 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_9811436922553cffcb7070622cc71a19f33b45e27aadd7ae92e70034bfa592a4->enter($__internal_9811436922553cffcb7070622cc71a19f33b45e27aadd7ae92e70034bfa592a4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@App/loisirs/create.html.twig"));
 
-        $__internal_61fe588f1602fb17363fce98c1d627c8df24088eecb17ee73ff5117a8a21e983 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_61fe588f1602fb17363fce98c1d627c8df24088eecb17ee73ff5117a8a21e983->enter($__internal_61fe588f1602fb17363fce98c1d627c8df24088eecb17ee73ff5117a8a21e983_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@App/loisirs/create.html.twig"));
+        $__internal_e6d3a74efa8db10e633590a6ce89516f4ff0a8f1d6bfe47100c70549f87dd6df = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_e6d3a74efa8db10e633590a6ce89516f4ff0a8f1d6bfe47100c70549f87dd6df->enter($__internal_e6d3a74efa8db10e633590a6ce89516f4ff0a8f1d6bfe47100c70549f87dd6df_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "@App/loisirs/create.html.twig"));
 
         // line 1
-        echo "<html>
-    <body>
-        <h3>Création d'un nouveau loisir</h3>
-        ";
-        // line 4
+        echo "<html><body><h3>Creation loisir ";
+        echo twig_escape_filter($this->env, $this->getAttribute(($context["entity"] ?? $this->getContext($context, "entity")), "getName", array(), "method"), "html", null, true);
+        echo " </h3>
+";
+        // line 2
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form_start', array("action" => $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("validate_create_loisir")));
         echo "
-        ";
-        // line 5
+";
+        // line 3
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["form"] ?? $this->getContext($context, "form")), 'form');
         echo "
-    </body>
-</html>";
+</body>
+</html>
+";
         
-        $__internal_9954c51d98f1083248e08129b1efb5b46dbb07a169dfc71352195a374a22771e->leave($__internal_9954c51d98f1083248e08129b1efb5b46dbb07a169dfc71352195a374a22771e_prof);
+        $__internal_9811436922553cffcb7070622cc71a19f33b45e27aadd7ae92e70034bfa592a4->leave($__internal_9811436922553cffcb7070622cc71a19f33b45e27aadd7ae92e70034bfa592a4_prof);
 
         
-        $__internal_61fe588f1602fb17363fce98c1d627c8df24088eecb17ee73ff5117a8a21e983->leave($__internal_61fe588f1602fb17363fce98c1d627c8df24088eecb17ee73ff5117a8a21e983_prof);
+        $__internal_e6d3a74efa8db10e633590a6ce89516f4ff0a8f1d6bfe47100c70549f87dd6df->leave($__internal_e6d3a74efa8db10e633590a6ce89516f4ff0a8f1d6bfe47100c70549f87dd6df_prof);
 
     }
 
@@ -55,7 +56,7 @@ class __TwigTemplate_74975345b4ffc9604eb0426b55c7b707657ab45bceebccbd72b03699af9
 
     public function getDebugInfo()
     {
-        return array (  34 => 5,  30 => 4,  25 => 1,);
+        return array (  34 => 3,  30 => 2,  25 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -68,12 +69,11 @@ class __TwigTemplate_74975345b4ffc9604eb0426b55c7b707657ab45bceebccbd72b03699af9
 
     public function getSourceContext()
     {
-        return new Twig_Source("<html>
-    <body>
-        <h3>Création d'un nouveau loisir</h3>
-        {{ form_start(form, {'action': path('validate_create_loisir') }) }}
-        {{ form(form) }}
-    </body>
-</html>", "@App/loisirs/create.html.twig", "/home/ubuntu/workspace/src/AppBundle/Resources/views/loisirs/create.html.twig");
+        return new Twig_Source("<html><body><h3>Creation loisir {{ entity.getName() }} </h3>
+{{ form_start(form, {'action': path('validate_create_loisir') }) }}
+{{form(form)}}
+</body>
+</html>
+", "@App/loisirs/create.html.twig", "/home/ubuntu/workspace/src/AppBundle/Resources/views/loisirs/create.html.twig");
     }
 }
